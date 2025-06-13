@@ -28,13 +28,13 @@ class AppServiceProvider extends ServiceProvider
         //     URL::forceScheme('https');
         // }
 
-        // if (app()->isProduction()) {
-        //     URL::forceScheme('https');
-        //     request()->server->set(
-        //         'HTTPS',
-        //         request()->header('X-Forwarded-Proto', 'https') == 'https' ? 'on' : 'off'
-        //     );
-        // }
+        if (app()->isProduction()) {
+            URL::forceScheme('https');
+            request()->server->set(
+                'HTTPS',
+                request()->header('X-Forwarded-Proto', 'https') == 'https' ? 'on' : 'off'
+            );
+        }
 
         // $publicStorage = public_path('storage');
 
