@@ -49,7 +49,7 @@ return [
 
         'custom_disk' => [
             'driver' => 'local',
-            'root' => '/storage',
+            'root' => storage_path('app/public'),
             'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
