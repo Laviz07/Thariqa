@@ -156,7 +156,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="" class="text-sm text-red-500">
+                                <a href="{{ route('logout') }}" class="text-sm text-red-500">
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
