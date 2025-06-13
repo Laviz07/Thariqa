@@ -5,9 +5,9 @@
 
         <div class="navbar bg-var[#F5F5DC] px-2">
 
-            <div class="navbar-start">
-                <img src="{{ asset('images/logo.png') }}" alt="" class="h-12">
-                <a class="text-xl font-bold">Thariqa</a>
+            <div class="navbar-start space-x-3">
+                <img src="{{ asset('images/logo.png') }}" alt="" class="h-10">
+                <a href="#" class="text-xl font-bold">Thariqa</a>
             </div>
 
             {{-- /* --------------------------- NAVBAR FOR DEKSTOP --------------------------- */ --}}

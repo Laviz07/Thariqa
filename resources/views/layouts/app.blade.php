@@ -42,7 +42,10 @@ data-theme="{{ session('theme', 'light') }}">
         @livewireScripts
 
         @include('includes.bottomNavbar')
+        
         @include('partials.alert')
+
+        @include('includes.footer')
     </div>
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>

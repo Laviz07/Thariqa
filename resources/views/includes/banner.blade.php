@@ -2,29 +2,29 @@
     <div id="carousel-container" class="flex transition-transform duration-700 ease-in-out">
         <!-- Slide 1 -->
         <div class="relative min-w-full">
-            <img src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-                class="h-64 w-full object-cover" />
+            <img src="{{ asset('images/banner/masjid.jpg') }}"
+                class="h-64 md:h-80 w-full object-cover" />
             <div
-                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 py-6 text-white">
-                <h2 class="text-xl font-semibold">Pengertian Ibadah dan hakikatnya</h2>
+                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-6 py-6 text-white">
+                <h2 class="text-2xl font-semibold">Memahami Ajaran Islam Secara Menyeluruh</h2>
             </div>
         </div>
         <!-- Slide 2 -->
         <div class="relative min-w-full">
-            <img src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
-                class="h-64 w-full object-cover" />
+            <img src="{{ asset('images/banner/al-quran.jpeg') }}"
+                class="h-64 md:h-80 w-full object-cover" />
             <div
-                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 py-6 text-white">
-                <h2 class="text-xl font-semibold">Makna Shalat dalam Kehidupan</h2>
+                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-6 py-6 text-white">
+                <h2 class="text-2xl font-semibold">Belajar dengan Bimbingan Al-Qur'an dan Sunnah</h2>
             </div>
         </div>
         <!-- Slide 3 -->
         <div class="relative min-w-full">
-            <img src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-                class="h-64 w-full object-cover" />
+            <img src="{{ asset('images/banner/batu.jpg') }}"
+                class="h-64 md:h-80 w-full object-cover" />
             <div
-                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 py-6 text-white">
-                <h2 class="text-xl font-semibold">Ibadah Sebagai Tujuan Hidup</h2>
+                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-6 py-6 text-white">
+                <h2 class="text-2xl font-semibold">Mengamalkan Ilmu untuk Kehidupan yang Lebih Bermakna</h2>
             </div>
         </div>
     </div>
