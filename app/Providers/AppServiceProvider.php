@@ -36,14 +36,14 @@ class AppServiceProvider extends ServiceProvider
             );
         }
 
-        $publicStorage = public_path('storage');
+        // $publicStorage = public_path('storage');
 
-        if (!is_link($publicStorage)) {
-            if (file_exists($publicStorage)) {
-                unlink($publicStorage);
-            }
+        // if (!is_link($publicStorage)) {
+        //     if (file_exists($publicStorage)) {
+        //         unlink($publicStorage);
+        //     }
 
-            symlink(storage_path('app/public'), $publicStorage);
-        }
+        //     symlink(storage_path('app/public'), $publicStorage);
+        // }
     }
 }
