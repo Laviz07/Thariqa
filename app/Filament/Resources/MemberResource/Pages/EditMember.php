@@ -32,6 +32,11 @@ class EditMember extends EditRecord
 
     protected function getRedirectUrl(): string
     {
+        if (Auth::check() && Auth::id() === $this->record->id) {
+            return url()->current(); // tetap di halaman edit
+        }
+
+        // Admin diarahkan ke halaman index resource
         return $this->getResource()::getUrl('index');
     }
 
