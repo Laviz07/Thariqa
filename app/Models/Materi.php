@@ -16,7 +16,7 @@ class Materi extends Model
 
     public function materi_contents()
     {
-        return $this->hasMany(materi_content::class);
+        return $this->hasMany(Materi_content::class);
     }
 
     public function user()
