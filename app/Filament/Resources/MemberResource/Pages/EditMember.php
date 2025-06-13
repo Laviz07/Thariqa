@@ -33,10 +33,9 @@ class EditMember extends EditRecord
     protected function getRedirectUrl(): string
     {
         if (Auth::check() && Auth::id() === $this->record->id) {
-            return url()->current(); // tetap di halaman edit
+            return $this->getResource()::getUrl('edit', ['record' => $this->record->id]);
         }
 
-        // Admin diarahkan ke halaman index resource
         return $this->getResource()::getUrl('index');
     }
 
@@ -51,9 +50,11 @@ class EditMember extends EditRecord
         $isChangingPassword = filled($this->data['password'] ?? null);
 
         if ($isEditingOwnAccount && $isChangingPassword) {
-            Auth::login($this->record); // Segarkan sesi agar tidak logout
+            Auth::loginUsingId($this->record->id);
+            session()->regenerate(); // penting agar sesi Livewire tidak rusak
         }
     }
+
 
     protected function getSavedNotification(): ?Notification
     {
