@@ -36,15 +36,15 @@ class AppServiceProvider extends ServiceProvider
             );
         }
 
-        $publicStorage = public_path('storage');
+        // $publicStorage = public_path('storage');
 
-        if (!is_link($publicStorage)) {
-            if (file_exists($publicStorage)) {
-                unlink($publicStorage); // jika ada file/folder lama
-            }
+        // if (!is_link($publicStorage)) {
+        //     if (file_exists($publicStorage)) {
+        //         unlink($publicStorage); // jika ada file/folder lama
+        //     }
 
-            // Buat symlink dari public/storage → /storage (mount Railway)
-            symlink('/storage', $publicStorage);
-        }
+        //     // Buat symlink dari public/storage → /storage (mount Railway)
+        //     symlink('/storage', $publicStorage);
+        // }
     }
 }
