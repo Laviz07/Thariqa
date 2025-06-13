@@ -108,11 +108,13 @@ class MateriResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('Gambar Materi')
-                    ->getStateUsing(fn($record) => env('APP_URL') . '/storage/' . $record->img ?? '')
-                    ->circular()
+                    // ->getStateUsing(fn($record) => env('APP_URL') . '/storage/' . $record->img ?? '')
+                    ->getStateUsing(function ($record) {
+                        return $record->img ? asset('storage/' . $record->img) : '';
+                    })
                     ->height(60)
-                    ->width(60),
-
+                    ->width(130),
+                    
                 TextColumn::make('judul')
                     ->label('Judul Materi')
                     ->searchable(),

@@ -117,7 +117,7 @@
 
 
                         @if (Auth::check())
-                            <li class="mb-1  md:hidden">
+                            <li class="mb-1 md:hidden">
                                 <a class="text-sm" href="{{ route('filament.admin.pages.dashboard') }}">
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -131,7 +131,7 @@
                                     Dashboard
                                 </a>
                             </li>
-                            <li class="mb-1  md:hidden">
+                            <li class="mb-1 md:hidden">
                                 <a class="text-sm" href="{{ route('filament.admin.resources.members.index') }}">
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -143,7 +143,7 @@
                                     Daftar Pengguna
                                 </a>
                             </li>
-                            <li class="mb-1  md:hidden">
+                            <li class="mb-1 md:hidden">
                                 <a class="text-sm" href="{{ route('filament.admin.resources.materis.index') }}">
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -171,7 +171,7 @@
                             </li>
                         @else
                             <li>
-                                <a class="text-sm text-green-500">
+                                <button class="text-sm text-green-500" onclick="loginModal.showModal()">
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
@@ -182,7 +182,9 @@
                                         </svg>
                                     </div>
                                     Login
-                                </a>
+                                </button>
+
+
                             </li>
                         @endif
                     </ul>
@@ -208,6 +210,10 @@
             </div>
         </div>
     </div>
+
+    <dialog id="loginModal" class="modal">
+        @include('includes.login')
+    </dialog>
 
     {{-- /* ----------------------------- DRAWER CONTENT ----------------------------- */ --}}
     {{-- <div class="drawer-side z-30">

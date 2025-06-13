@@ -122,11 +122,17 @@ class MemberResource extends Resource
             ->columns([
                 ImageColumn::make('user.avatar')
                     ->label('Foto Profil')
+                    // ->getStateUsing(
+                    //     fn($record) =>
+                    //     $record->avatar
+                    //         ? env('APP_URL') . '/storage/' . $record->avatar
+                    //         : url('images/profile.png')
+                    // )
                     ->getStateUsing(
                         fn($record) =>
                         $record->avatar
-                            ? env('APP_URL') . '/storage/' . $record->avatar
-                            : url('images/profile.png')
+                            ? asset('storage/' . $record->avatar)
+                            : asset('images/profile.png')
                     )
                     ->circular()
                     ->height(60)

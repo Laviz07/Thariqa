@@ -3,7 +3,7 @@ import laravel from 'laravel-vite-plugin';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-    base: "https://010f-180-252-114-68.ngrok-free.app ",
+    // base: "https://010f-180-252-114-68.ngrok-free.app ",
     plugins: [
         laravel({
             input: [
@@ -18,8 +18,8 @@ export default defineConfig({
     server: {
         host: true,
         hmr: {
-            // host: "127.0.0.1",
-            host: "https://010f-180-252-114-68.ngrok-free.app ",
+            host: "127.0.0.1",
+            // host: "https://010f-180-252-114-68.ngrok-free.app ",
         },
     },
 });

@@ -31,7 +31,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->topNavigation()
-            ->login()
+            // ->login()
             ->colors([
                 'primary' => Color::Green,
             ])
@@ -77,12 +77,12 @@ class AdminPanelProvider extends PanelProvider
                     ->icon('heroicon-o-home-modern'),
 
                 NavigationGroup::make()
-                    ->label('Materi')
-                    ->icon('heroicon-o-book-open'),
-
-                NavigationGroup::make()
                     ->label('Tentang Kami')
                     ->icon('heroicon-o-information-circle'),
+
+                NavigationGroup::make()
+                    ->label('Materi')
+                    ->icon('heroicon-o-book-open'),
             ]);
 
             Filament::registerNavigationItems([
