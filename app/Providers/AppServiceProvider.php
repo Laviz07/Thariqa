@@ -40,11 +40,10 @@ class AppServiceProvider extends ServiceProvider
 
         if (!is_link($publicStorage)) {
             if (file_exists($publicStorage)) {
-                unlink($publicStorage); // jika ada file/folder lama
+                unlink($publicStorage);
             }
 
-            // Buat symlink dari public/storage → /storage (mount Railway)
-            symlink('/storage', $publicStorage);
+            symlink(storage_path('app/public'), $publicStorage);
         }
     }
 }
