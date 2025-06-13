@@ -41,6 +41,13 @@ class EditMember extends EditRecord
             ->title('Pengguna berhasil diedit!')
             ->success()
             ->send();
+
+        $isEditingOwnAccount = Auth::check() && Auth::id() === $this->record->id;
+        $isChangingPassword = filled($this->data['password'] ?? null);
+
+        if ($isEditingOwnAccount && $isChangingPassword) {
+            Auth::login($this->record); // Segarkan sesi agar tidak logout
+        }
     }
 
     protected function getSavedNotification(): ?Notification
