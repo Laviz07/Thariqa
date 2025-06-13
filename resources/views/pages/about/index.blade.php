@@ -119,7 +119,7 @@
                 <div class="hero-content flex-col p-5 lg:flex-row" {{-- <div class="hero-content p-5 flex-col lg:flex-row rounded-xl shadow-2xl
                 bg-gradient-to-br from-green-100 via-slate-50 to-green-50"  --}} data-aos="fade-left"
                     style="will-change: transform;" data-aos-easing="ease-in-sine">
-                    <img src="{{ asset('images/logo.png/') }}" class="max-w-xs rounded-lg shadow-2xl md:max-w-md" />
+                    <img src="{{ asset('images/banner/siluet-ibadah.jpg') }}" class="max-w-xs rounded-lg shadow-2xl md:max-w-md lg:h-80 object-cover" />
                     <div class="">
                         <h1 class="py-6 text-center text-3xl font-bold lg:text-end">Tujuan Thariqa</h1>
                         <p class="py-3 text-justify">

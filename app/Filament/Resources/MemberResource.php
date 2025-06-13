@@ -106,7 +106,7 @@ class MemberResource extends Resource
                     ->label('Gambar Anggota Kelompok (9:16)')
                     ->image()
                     ->directory('avatar')
-                    ->disk('public')
+                    ->disk('custom_disk')
                     ->visibility('public')
                     ->maxSize(1024)
                     ->maxFiles(4)

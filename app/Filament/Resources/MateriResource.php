@@ -91,7 +91,7 @@ class MateriResource extends Resource
                     ->label('Gambar Materi (16:9)')
                     ->image()
                     ->directory('materi_img')
-                    ->disk('public')
+                    ->disk('custom_disk')
                     ->visibility('public')
                     ->maxSize(1024)
                     ->required()
