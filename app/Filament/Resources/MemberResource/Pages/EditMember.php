@@ -7,6 +7,7 @@ use Filament\Actions;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class EditMember extends EditRecord
 {
@@ -53,10 +54,14 @@ class EditMember extends EditRecord
     protected function mutateFormDataBeforeSave(array $data): array
     {
         if (!empty($data['password'])) {
-            $this->record->updateQuietly([
-                'password' => bcrypt($data['password']),
-            ]);
-            unset($data['password']); // supaya tidak double update
+            \Illuminate\Database\Eloquent\Model::withoutTouching(function () use ($data) {
+                $this->record->forceFill([
+                    'password' => bcrypt($data['password']),
+                    'remember_token' => Str::random(60), // kunci agar tidak logout
+                ])->saveQuietly();
+            });
+
+            unset($data['password']); // agar tidak disimpan dua kali
         }
 
         return $data;
