@@ -38,12 +38,6 @@ class EditMember extends EditRecord
 
     protected function afterSave(): void
     {
-        $currentUser = Auth::user();
-
-        if ($this->record->id === $currentUser->id && isset($this->data['password']) && !empty($this->data['password'])) {
-            Auth::login($this->record);
-        }
-
         Notification::make()
             ->title('Pengguna berhasil diedit!')
             ->success()
@@ -59,10 +53,12 @@ class EditMember extends EditRecord
     protected function mutateFormDataBeforeSave(array $data): array
     {
         if (!empty($data['password'])) {
-            $data['password'] = bcrypt($data['password']);
-        } else {
-            unset($data['password']); // supaya password tidak diubah kalau kosong
+            $this->record->updateQuietly([
+                'password' => bcrypt($data['password']),
+            ]);
+            unset($data['password']); // supaya tidak double update
         }
+
         return $data;
     }
 }
