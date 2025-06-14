@@ -74,6 +74,12 @@ data-theme="{{ session('theme', 'light') }}">
                 });
             }
         });
+
+        window.addEventListener('password-changed-logout', () => {
+        setTimeout(() => {
+            window.location.href = "{{ route('home') }}"; // atau route('login') kalau mau langsung login
+        }, 500);
+    });
     </script>
 
 </body>
