@@ -86,7 +86,7 @@ class MemberResource extends Resource
                     ->schema([
                         TextInput::make('password')
                             ->label('Password')
-                            ->placeholder('Masukkan password baru jika ingin mengganti')
+                            ->placeholder('Masukkan password baru jika ingin mengganti, anda akan logout setelah mengganti password')
                             ->password()
                             ->revealable()
                             ->dehydrated(fn($state) => filled($state)) // hanya simpan jika diisi

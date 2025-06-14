@@ -49,6 +49,12 @@ class EditMember extends EditRecord
             ->title('Pengguna berhasil diedit!')
             ->success()
             ->send();
+
+        if ($this->changedOwnPassword) {
+            auth()->logout();
+            session()->invalidate();
+            session()->regenerateToken();
+        }
     }
 
 
