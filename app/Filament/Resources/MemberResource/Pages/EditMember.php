@@ -51,11 +51,12 @@ class EditMember extends EditRecord
             ->send();
 
         if ($this->changedOwnPassword) {
-            // auth()->logout();
-            // session()->invalidate();
-            // session()->regenerateToken();
+            auth()->logout();
+            session()->invalidate();
+            session()->regenerateToken();
 
-            $this->dispatch('password-changed-logout') ;
+            redirect()->route('home')->send();
+            // $this->dispatch('password-changed-logout');
         }
     }
 
