@@ -73,29 +73,6 @@
                 });
             }
         });
-
-        document.addEventListener('alpine:init', () => {
-            window.addEventListener('password-changed-logout', () => {
-                const form = document.createElement('form');
-                form.method = 'POST';
-                form.action = '{{ route('filament.admin.auth.logout') }}';
-
-                const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = '_token';
-                input.value = token;
-
-                form.appendChild(input);
-                document.body.appendChild(form);
-                form.submit();
-            });
-        });
-
-        // Cek apakah di-redirect ke ?force=1, jika ya reload ulang agar state logout benar-benar ter-update
-        if (window.location.search.includes('force=1')) {
-            location.reload(true);
-        }
     </script>
 
 </body>

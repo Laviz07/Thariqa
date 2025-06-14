@@ -44,6 +44,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('home', ['force' => 1]);
+        return redirect()->route('home');
     }
 }
