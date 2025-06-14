@@ -78,8 +78,7 @@
             window.addEventListener('password-changed-logout', () => {
                 const form = document.createElement('form');
                 form.method = 'POST';
-                form.action = '{{ route('logout') }}';
-                console.log(form);
+                form.action = '{{ route('filament.admin.auth.logout') }}';
 
                 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
                 const input = document.createElement('input');
