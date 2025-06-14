@@ -85,8 +85,8 @@ class MemberResource extends Resource
                 Fieldset::make('Password')
                     ->schema([
                         TextInput::make('password')
-                            ->label('Password')
-                            ->placeholder('Masukkan password baru jika ingin mengganti, anda akan logout setelah mengganti password')
+                            ->label('Password Baru (Anda akan logout setelah mengganti password)')
+                            ->placeholder('Masukkan password baru jika ingin')
                             ->password()
                             ->revealable()
                             ->dehydrated(fn($state) => filled($state)) // hanya simpan jika diisi
