@@ -75,10 +75,12 @@ data-theme="{{ session('theme', 'light') }}">
             }
         });
 
+        document.addEventListener('alpine:init', () => {
         window.addEventListener('password-changed-logout', () => {
-        setTimeout(() => {
-            window.location.href = "{{ route('home') }}"; // atau route('login') kalau mau langsung login
-        }, 500);
+            setTimeout(() => {
+                window.location.href = "{{ route('home') }}";
+            }, 500);
+        });
     });
     </script>
 

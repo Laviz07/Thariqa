@@ -55,7 +55,7 @@ class EditMember extends EditRecord
             session()->invalidate();
             session()->regenerateToken();
 
-            $this->dispatch('password-changed-logout');
+            $this->dispatch('password-changed-logout') ;
         }
     }
 
