@@ -79,6 +79,7 @@
                 const form = document.createElement('form');
                 form.method = 'POST';
                 form.action = '{{ route('logout') }}';
+                console.log(form);
 
                 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
                 const input = document.createElement('input');
@@ -94,7 +95,7 @@
 
         // Cek apakah di-redirect ke ?force=1, jika ya reload ulang agar state logout benar-benar ter-update
         if (window.location.search.includes('force=1')) {
-            window.location.href = window.location.origin + window.location.pathname;
+            location.reload(true);
         }
     </script>
 

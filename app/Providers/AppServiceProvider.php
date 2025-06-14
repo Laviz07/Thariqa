@@ -43,8 +43,7 @@ class AppServiceProvider extends ServiceProvider
                 unlink($publicStorage);
             }
 
-            // symlink(storage_path('app/public'), $publicStorage);
-            symlink('/storage', $publicStorage);
+            symlink(storage_path('app/public'), $publicStorage);
         }
     }
 }
