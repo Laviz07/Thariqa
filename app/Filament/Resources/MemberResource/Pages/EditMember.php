@@ -38,6 +38,12 @@ class EditMember extends EditRecord
 
     protected function afterSave(): void
     {
+        $currentUser = Auth::user();
+
+        if ($this->record->id === $currentUser->id && isset($this->data['password']) && !empty($this->data['password'])) {
+            Auth::login($this->record);
+        }
+
         Notification::make()
             ->title('Pengguna berhasil diedit!')
             ->success()
