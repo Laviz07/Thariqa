@@ -81,7 +81,6 @@
                 form.action = '{{ route('logout') }}';
 
                 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
                 const input = document.createElement('input');
                 input.type = 'hidden';
                 input.name = '_token';
@@ -92,6 +91,11 @@
                 form.submit();
             });
         });
+
+        // Cek apakah di-redirect ke ?force=1, jika ya reload ulang agar state logout benar-benar ter-update
+        if (window.location.search.includes('force=1')) {
+            window.location.href = window.location.origin + window.location.pathname;
+        }
     </script>
 
 </body>
