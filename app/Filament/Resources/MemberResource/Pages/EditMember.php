@@ -32,12 +32,9 @@ class EditMember extends EditRecord
 
     protected function getRedirectUrl(): string
     {
-        if (Auth::check() && Auth::id() === $this->record->id) {
-            return $this->getResource()::getUrl('edit', ['record' => $this->record->id]);
-        }
-
-        return $this->getResource()::getUrl('index');
+        return static::getResource()::getUrl('edit', ['record' => $this->record->id]);
     }
+
 
     protected function afterSave(): void
     {
@@ -45,14 +42,6 @@ class EditMember extends EditRecord
             ->title('Pengguna berhasil diedit!')
             ->success()
             ->send();
-
-        $isEditingOwnAccount = Auth::check() && Auth::id() === $this->record->id;
-        $isChangingPassword = filled($this->data['password'] ?? null);
-
-        if ($isEditingOwnAccount && $isChangingPassword) {
-            Auth::loginUsingId($this->record->id);
-            session()->regenerate(); // penting agar sesi Livewire tidak rusak
-        }
     }
 
 
