@@ -13,6 +13,8 @@ class EditMember extends EditRecord
 {
     protected static string $resource = MemberResource::class;
 
+    protected bool $changedOwnPassword = false;
+
     protected function getHeaderActions(): array
     {
         if (Auth::user()->role !== 'admin') {
@@ -33,6 +35,10 @@ class EditMember extends EditRecord
 
     protected function getRedirectUrl(): string
     {
+        if ($this->changedOwnPassword) {
+            return route('home'); // pastikan ada route ini
+        }
+
         return static::getResource()::getUrl('edit', ['record' => $this->record->id]);
     }
 
@@ -54,14 +60,16 @@ class EditMember extends EditRecord
     protected function mutateFormDataBeforeSave(array $data): array
     {
         if (!empty($data['password'])) {
-            \Illuminate\Database\Eloquent\Model::withoutTouching(function () use ($data) {
-                $this->record->forceFill([
-                    'password' => bcrypt($data['password']),
-                    'remember_token' => Str::random(60), // kunci agar tidak logout
-                ])->saveQuietly();
-            });
+            $this->record->forceFill([
+                'password' => bcrypt($data['password']),
+                'remember_token' => Str::random(60),
+            ])->saveQuietly();
 
-            unset($data['password']); // agar tidak disimpan dua kali
+            if (auth()->id() === $this->record->id) {
+                $this->changedOwnPassword = true;
+            }
+
+            unset($data['password']);
         }
 
         return $data;
