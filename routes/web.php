@@ -16,7 +16,7 @@ Route::get('/materi/search', [MateriController::class, 'search'])->name('materi.
 Route::get('/materi/{slug}', [MateriController::class, 'show'])->name('materi.detail');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::post('/admin/logout', function (Request $request) {
     auth('web')->logout();

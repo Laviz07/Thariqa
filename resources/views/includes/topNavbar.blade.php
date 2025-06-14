@@ -183,8 +183,6 @@
                                     </div>
                                     Login
                                 </button>
-
-
                             </li>
                         @endif
                     </ul>
